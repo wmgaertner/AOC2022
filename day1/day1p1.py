@@ -1,17 +1,19 @@
-file = open("input.txt")
+import sys
+
+file = open(sys.argv[1])
 
 calories = 0
 max_calories = 0
 for line in file:
-    if (line.strip().isdigit()):
+    if line.strip().isdigit():
         calories += int(line)
-    if (line.isspace()):
+    if line.isspace():
         if calories > max_calories:
             max_calories = calories
         calories = 0
 # in case file doesn't end on empty line
-if (calories != 0):
+if calories != 0:
     if calories > max_calories:
-            max_calories = calories
+        max_calories = calories
 print("Most calories = ")
 print(max_calories)

@@ -1,13 +1,14 @@
-file = open("input.txt")
+import sys
 
+file = open(sys.argv[1])
 
 
 calories_list = []
 calories = 0
 for line in file:
-    if (line.strip().isdigit()):
+    if line.strip().isdigit():
         calories += int(line)
-    if (line.isspace()):
+    if line.isspace():
         calories_list.append(calories)
         calories = 0
 # in case file doesn't end on empty line
